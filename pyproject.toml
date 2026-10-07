@@ -1,0 +1,18 @@
+[project]
+name = "hep_workflows_plugin_example"
+dynamic = ["version"]
+dependencies = [
+    "hep_workflows @ git+https://github.com/nVentis/hep-workflows"
+]
+
+[tool.setuptools]
+# the repository root is the package `hep_workflows_plugin_example`
+package-dir = { "hep_workflows_plugin_example" = "." }
+packages = [
+    "hep_workflows_plugin_example",
+    "hep_workflows_plugin_example.workflows",
+    "hep_workflows_plugin_example.workflows.configurations",
+]
+
+[project.entry-points."hep_workflows.tasks"]
+zhh = "hep_workflows_plugin_example.workflows.plugin:register"

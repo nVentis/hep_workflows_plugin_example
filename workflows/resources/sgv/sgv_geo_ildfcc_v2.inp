@@ -1,0 +1,533 @@
+C (this teresas sgv_geo_fullsim_ildfcc_v2.inp)
+C    Detector example: ILD at FCCee
+C
+C Teresa: BFIELD updated (MB)
+BF: BFIELD=2.0
+
+TYPE:  BARREL_TRACKING
+
+C 
+      LAYER: BEAMPIPE
+         GEOMETRY:  R=1.2, ZMIN=0.0, ZMAX=999.9
+         MATERIAL:    X0=.005611505, A= 4
+         MEASUREMENT: CODE=0
+C       0.045+0.033 cm AlBeMet162 (X0 18.7945 cm ) + 0.09 cm LiquidNDecane (X0  61.5867 cm)
+
+      LAYER: VXD1
+         GEOMETRY:  R=1.3 , ZMIN=0.0, ZMAX=10.9
+         MATERIAL:    X0=0.00304, A= 14
+         MEASUREMENT: CODE=1, SIG_RPHI=0.00028, SIG_Z=0.00028
+
+      LAYER: VXD1
+         GEOMETRY:  R=1.4285 , ZMIN=0.0, ZMAX=10.9
+         MATERIAL:    X0=0.00304, A= 14
+         MEASUREMENT: CODE=1, SIG_RPHI=0.0006, SIG_Z=0.0006
+
+      LAYER: VXD2
+         GEOMETRY:  R=3.5 , ZMIN=0.0, ZMAX=10.9
+         MATERIAL:    X0=0.00304,  A= 14
+         MEASUREMENT: CODE=1, SIG_RPHI=0.0004, SIG_Z=0.0004
+
+      LAYER: VXD2
+         GEOMETRY:  R=3.6285 , ZMIN=0.0, ZMAX=10.9
+         MATERIAL:    X0=0.00304,  A= 14
+         MEASUREMENT: CODE=1, SIG_RPHI=0.0004, SIG_Z=0.0004
+
+      LAYER: VXD3
+         GEOMETRY:  R=5.7 , ZMIN=0.0, ZMAX=10.9
+         MATERIAL:    X0=0.00304, A= 14
+         MEASUREMENT: CODE=1, SIG_RPHI=0.0004, SIG_Z=0.0004
+
+      LAYER: VXD3
+         GEOMETRY:  R=5.8285 , ZMIN=0.0, ZMAX=10.9
+         MATERIAL:    X0=0.00304, A= 14
+         MEASUREMENT: CODE=1, SIG_RPHI=0.0004, SIG_Z=0.0004
+
+
+C Teresa (updated): SIT modified for full sim
+
+C V2
+      LAYER : SIT1
+         GEOMETRY:  R=12.7 , ZMIN=0.0, ZMAX=46.65
+         MATERIAL:    X0=0.002136752, A=14
+         MEASUREMENT: CODE=1, SIG_RPHI=0.0007, SIG_Z=0.0050
+
+      LAYER : SIT2
+         GEOMETRY:  R=40.0 , ZMIN=0.0, ZMAX=46.65
+         MATERIAL:    X0=0.002136752, A=14
+         MEASUREMENT: CODE=1, SIG_RPHI=0.0007, SIG_Z=0.0050
+	 
+      LAYER : SIT3
+         GEOMETRY:  R=67.0 , ZMIN=0.0, ZMAX=67.725
+         MATERIAL:    X0=0.002136752, A=14
+         MEASUREMENT: CODE=1, SIG_RPHI=0.0007, SIG_Z=0.0050
+
+     LAYER : SIT-SUP
+         GEOMETRY:  R=13.2 , ZMIN=0.0, ZMAX=46.65
+         MATERIAL:    X0=0.00165253, A=6
+         MEASUREMENT: CODE=0
+
+      LAYER : SIT-SUP
+         GEOMETRY:  R=40.5 , ZMIN=0.0, ZMAX=46.65
+         MATERIAL:    X0=0.00165253, A=6
+         MEASUREMENT: CODE=0
+
+      LAYER : SIT-SUP
+         GEOMETRY:  R=67.5 , ZMIN=0.0, ZMAX=69.23
+         MATERIAL:    X0=0.00165253, A=6
+         MEASUREMENT: CODE=0
+	 
+     LAYER : SIT-SUP
+         GEOMETRY:  R=68.6 , ZMIN=0.0, ZMAX=230
+         MATERIAL:    X0=0.012150953, A=6
+         MEASUREMENT: CODE=0
+
+     LAYER : SIT-INTERLINK
+         GEOMETRY:  R=65.0 , ZMIN=50.16, ZMAX=71.23
+         MATERIAL:    X0=0.005832458, A=6
+         MEASUREMENT: CODE=0
+	     
+     LAYER: BP-SHELL3
+          GEOMETRY:  R = 11.1, ZMIN=0.0, ZMAX=50.0
+          MATERIAL:    X0=0.003495489, A = 6
+          MEASUREMENT: CODE=0
+
+C V2 
+      LAYER : TPC-IWALL
+            GEOMETRY:  R=70.1  , ZMIN=0.0, ZMAX=240.25
+            MATERIAL:    X0=.0130390984, A=6
+            MEASUREMENT: CODE=0
+
+      LAYER : TPC
+         REPEAT : TIMES=16, DELTA_R=5.95
+
+C             R is the edge of the first pad. max R should be
+C             169.67, 159 pads 6 mm. rad length is 1.155205835e+05
+C             mm. Here I do 16 rows (grouped by 10)
+C
+            GEOMETRY:  R=77.34  , ZMIN=0.0, ZMAX=230.25
+            MATERIAL:    X0=0.000515	    
+            MEASUREMENT: CODE=1, SIG_RPHI=0.00158, SIG_Z=0.013,
+                          SIG_RPHI_BETA=0.028, 
+                          DIFFUSION=0.0053,
+                          MOBILITY=3.0
+        ENDREPEAT :
+
+      LAYER : TPC-OWALL       
+            GEOMETRY:  R=171.48 , ZMIN=0.0, ZMAX=240.25
+            MATERIAL:    X0=.0200082718,  A=6
+            MEASUREMENT: CODE=0
+
+C Teresa (updated): R changed
+      LAYER : SET
+            GEOMETRY:  R=178  , ZMIN=0.0, ZMAX=240.5
+            MATERIAL:    X0=0.0069176686 , A=14
+            MEASUREMENT: CODE=1, SIG_RPHI=0.0007, SIG_Z=0.0100
+
+      LAYER : 
+            GEOMETRY:  R=180.43  , ZMIN=0.0, ZMAX=240.5
+            MATERIAL:    X0=0.0069176686 , A=14
+            MEASUREMENT: CODE=1, SIG_RPHI=0.0007, SIG_Z=0.0100
+
+      LAYER : ECALBARREL-MAT
+            GEOMETRY:  R=184.27 , ZMIN=0.0, ZMAX=240.5
+            MATERIAL:    X0=0
+            MEASUREMENT: CODE=10
+      LAYER : ECALBARREL-MAT
+            GEOMETRY:  R=184.271 , ZMIN=0.0, ZMAX=240.5
+            MATERIAL:    X0=0.6, A=74
+            MEASUREMENT: CODE=10
+      LAYER : ECALBARREL-MAT
+         REPEAT : TIMES=3 , DELTA_R=3.15
+            GEOMETRY:  R=184.925 , ZMIN=0.0, ZMAX=240.5
+            MATERIAL:    X0=3.6, A=74
+            MEASUREMENT: CODE=10
+         ENDREPEAT :
+      LAYER : ECALBARREL-MAT
+            GEOMETRY:  R=192.3 , ZMIN=0.0, ZMAX=240.5
+            MATERIAL:    X0=0.6,A=74
+            MEASUREMENT: CODE=10
+      LAYER : ECALBARREL-MAT
+         REPEAT : TIMES=3 , DELTA_R=2.205
+            GEOMETRY:  R=192.6 , ZMIN=0.0, ZMAX=240.5
+            MATERIAL:    X0=3.6, A=74
+            MEASUREMENT: CODE=10
+         ENDREPEAT :
+      LAYER : ECALBARREL-MAT
+            GEOMETRY:  R=201.4 , ZMIN=0.0, ZMAX=240.5
+            MATERIAL:    X0=0
+            MEASUREMENT: CODE=10
+
+      LAYER : HCALBARREL-MAT
+            GEOMETRY:  R=204.24 , ZMIN=0.0, ZMAX=240.5
+            MATERIAL:    X0=0.
+            MEASUREMENT: CODE=10
+      LAYER : HCALBARREL-MAT
+         REPEAT : TIMES=4 , DELTA_R=31.8
+            GEOMETRY:  R=204.25 , ZMIN=0.0, ZMAX=240.5
+            MATERIAL:    X0=13.6363636363, A= 26
+            MEASUREMENT: CODE=10
+         ENDREPEAT :
+      LAYER : HCALBARREL-MAT
+            GEOMETRY:  R=321.54 , ZMIN=0.0, ZMAX=240.5
+            MATERIAL:    X0=0.
+            MEASUREMENT: CODE=10
+
+      LAYER : MAGNET
+            GEOMETRY:  R=439. , ZMIN=0.0, ZMAX=400.0
+            MATERIAL:    X0=4.0, A= 14
+            MEASUREMENT: CODE=0
+
+      LAYER : YOKEB-MAT
+            GEOMETRY:  R=469.1 , ZMIN=0.0, ZMAX=420.5
+            MATERIAL:    A= 26
+            MEASUREMENT: CODE=0
+      LAYER : 
+            GEOMETRY:  R=669.1 , ZMIN=0.0, ZMAX=420.5
+            MATERIAL:    A= 26
+            MEASUREMENT: CODE=0
+
+TYPE:  FORWARD_TRACKING
+
+C Teresa (updated)
+
+C Grouped in 5 layers to avoid space problems in loading the geometry
+
+
+      LAYER:LCAL-MAT 
+         GEOMETRY:  Z=107.3, RMIN=5.5, RMAX=11.5
+         MATERIAL:    X0=0.0 
+         MEASUREMENT: CODE=10
+      LAYER:LCAL-MAT
+         REPEAT : TIMES = 5 , DELTA_Z = 2.25 
+            GEOMETRY:  Z=107.4,  RMIN=5.5, RMAX=11.5
+            MATERIAL:    X0=5. , A= 74, INTLEN=0.182
+            MEASUREMENT: CODE=10
+         ENDREPEAT : 
+      LAYER:LCAL-MAT 
+         GEOMETRY:  Z=118.65,  RMIN=5.5, RMAX=11.5
+         MATERIAL:    X0=0.0 
+         MEASUREMENT: CODE=10
+
+	 
+      LAYER:LCAL-AL-INST 
+         GEOMETRY:  Z=107.3, RMIN=11.5, RMAX=11.7
+         MATERIAL:    X0=0.0 
+         MEASUREMENT: CODE=10
+      LAYER:LCAL-AL-INST
+         REPEAT : TIMES = 5 , DELTA_Z = 2.25
+            GEOMETRY:  Z=107.4,  RMIN=11.5, RMAX=11.7
+            MATERIAL:    X0=0.011239745 , A= 13
+            MEASUREMENT: CODE=10
+         ENDREPEAT : 
+      LAYER:LCAL-AL-INST 
+         GEOMETRY:  Z=118.65,  RMIN=11.5, RMAX=11.7
+         MATERIAL:    X0=0.0 
+         MEASUREMENT: CODE=10
+
+
+      LAYER:LCAL-BACK 
+         GEOMETRY:  Z=118.825,  RMIN=5.5, RMAX=12.675
+         MATERIAL:    X0=1, A = 74 
+         MEASUREMENT: CODE=10
+
+
+
+C Teresa(Updated ): I put here the "VertexVerticalCable" type="TrackerEndcapSupport_o1_v02"
+
+     LAYER : VXD-VERTCABLE
+            GEOMETRY:  Z=11.0 , RMIN=1.3, RMAX=11.05
+             MATERIAL:    X0=0.001392758,   A=29
+            MEASUREMENT: CODE=0
+
+C Teresa (updated): added VXDENDCAP
+C Separate sensitive from non sensitive part of the Si ??? (in the VXD barrel I separate it)
+
+     LAYER : VXDENDCAP1
+            GEOMETRY:  Z= 15.939, RMIN= 2.4, RMAX= 10.2
+            MATERIAL:    X0=0.001760939, A = 14
+            MEASUREMENT: CODE=2, SIG_X=0.0004, SIG_Y=0.0004
+
+     LAYER : VXDENDCAP2
+            GEOMETRY:  Z= 16.061, RMIN= 2.4, RMAX= 10.2
+            MATERIAL:    X0=0.001760939, A = 14
+            MEASUREMENT:  CODE=2, SIG_X=0.0004, SIG_Y=0.0004
+
+     LAYER : VXDENDCAP3
+            GEOMETRY:  Z= 22.939, RMIN= 3.45, RMAX= 10.2
+            MATERIAL:    X0=0.001760939, A = 14
+            MEASUREMENT:  CODE=2, SIG_X=0.0004, SIG_Y=0.0004
+
+     LAYER : VXDENDCAP4
+            GEOMETRY:  Z= 23.061, RMIN= 3.45, RMAX= 10.2
+            MATERIAL:    X0=0.001760939, A = 14
+            MEASUREMENT:  CODE=2, SIG_X=0.0004, SIG_Y=0.0004
+
+     LAYER : VXDENDCAP5
+            GEOMETRY:  Z= 29.939, RMIN= 4.5, RMAX= 10.2
+            MATERIAL:    X0=0.001760939, A = 14
+            MEASUREMENT:  CODE=2, SIG_X=0.0004, SIG_Y=0.0004
+
+     LAYER : VXDENDCAP6
+            GEOMETRY:  Z= 30.061, RMIN= 4.5, RMAX= 10.2
+            MATERIAL:    X0=0.001760939, A = 14
+            MEASUREMENT:  CODE=2, SIG_X=0.0004, SIG_Y=0.0004
+
+
+C Teresa (updated): added SITENDCAP (Inner Tracker end cap)
+C Thickness 0.02 cm (0.01 sensitive + 0.01 not sensitive) 
+C V2
+
+
+     LAYER : SITENDCAP1
+            GEOMETRY:  Z= 52.4, RMIN= 7.95, RMAX= 45.7
+            MATERIAL:    X0=0.002136752, A = 14
+            MEASUREMENT: CODE=2, SIG_X=0.0007, SIG_Y=0.0007
+
+     LAYER : SITENDCAP2
+            GEOMETRY:  Z= 80.8, RMIN= 12.35, RMAX= 65.2
+            MATERIAL:    X0=0.002136752, A = 14
+            MEASUREMENT: CODE=2, SIG_X=0.0007, SIG_Y=0.0007
+
+     LAYER : SITENDCAP3
+            GEOMETRY:  Z= 109.3, RMIN= 16.5, RMAX= 66.33
+            MATERIAL:    X0=0.002136752, A = 14
+            MEASUREMENT: CODE=2, SIG_X=0.0007, SIG_Y=0.0007
+
+     LAYER : SITENDCAP4
+            GEOMETRY:  Z= 137.7, RMIN= 20.75, RMAX= 66.05
+            MATERIAL:    X0=0.002136752, A = 14
+            MEASUREMENT: CODE=2, SIG_X=0.0007, SIG_Y=0.0007
+
+     LAYER : SITENDCAP5
+            GEOMETRY:  Z= 166.1, RMIN= 24.95, RMAX= 65.72
+            MATERIAL:    X0=0.002136752, A = 14
+            MEASUREMENT: CODE=2, SIG_X=0.0007, SIG_Y=0.0007
+
+     LAYER : SITENDCAP6
+            GEOMETRY:  Z= 194.6, RMIN= 29.3, RMAX= 64.03
+            MATERIAL:    X0=0.002136752, A = 14
+            MEASUREMENT: CODE=2, SIG_X=0.0007, SIG_Y=0.0007
+
+     LAYER : SITENDCAP7
+            GEOMETRY:  Z= 219, RMIN= 33, RMAX= 64.71
+            MATERIAL:    X0=0.002136752, A = 14
+            MEASUREMENT: CODE=2, SIG_X=0.0007, SIG_Y=0.0007
+	    
+
+     LAYER : SITENDCAP-SUP
+            GEOMETRY:  Z= 51.4, RMIN= 7.95, RMAX= 45.6
+            MATERIAL:    X0=0.003207852, A = 6
+            MEASUREMENT: CODE=0
+     LAYER : SITENDCAP-SUP
+            GEOMETRY:  Z= 81.8, RMIN= 12.3, RMAX= 67.1
+            MATERIAL:    X0=0.002993995, A = 6
+            MEASUREMENT: CODE=0
+     LAYER : SITENDCAP-SUP
+            GEOMETRY:  Z= 108.3, RMIN= 16.5, RMAX= 67.1
+            MATERIAL:    X0=0.002993995, A = 6
+            MEASUREMENT: CODE=0
+     LAYER : SITENDCAP-SUP
+            GEOMETRY:  Z= 138.7, RMIN= 20.95, RMAX= 67.1
+            MATERIAL:    X0=0.003334222, A = 6
+            MEASUREMENT: CODE=0
+     LAYER : SITENDCAP-SUP
+            GEOMETRY:  Z= 165.1, RMIN= 24.95, RMAX= 67.1
+            MATERIAL:    X0=0.003334222, A = 6
+            MEASUREMENT: CODE=0
+     LAYER : SITENDCAP-SUP
+            GEOMETRY:  Z= 195.6, RMIN= 29.5, RMAX= 67.1
+            MATERIAL:    X0=0.003586961, A = 6
+            MEASUREMENT: CODE=0
+     LAYER : SITENDCAP-SUP
+            GEOMETRY:  Z= 218.0, RMIN= 33.0, RMAX= 67.1
+            MATERIAL:    X0=0.003586961, A = 6
+            MEASUREMENT: CODE=0
+     LAYER : SITENDCAP-SUP
+            GEOMETRY:  Z= 71.23, RMIN= 65.17, RMAX= 68.6
+            MATERIAL:    X0=0.005832458, A = 6
+            MEASUREMENT: CODE=0
+     LAYER : SITENDCAP-SUP
+            GEOMETRY:  Z= 50.16, RMIN= 12.7, RMAX= 40.0
+            MATERIAL:    X0=0.005832458, A = 6
+            MEASUREMENT: CODE=0
+     LAYER : SITENDCAP-SUP
+            GEOMETRY:  Z= 50.16, RMIN= 40.0, RMAX= 65.0
+            MATERIAL:    X0=0.005832458, A = 6
+            MEASUREMENT: CODE=0
+
+C Same for V1 and V2
+     LAYER: BP-SHELL2
+            GEOMETRY:  Z= 49.8, RMIN= 7.5, RMAX= 11.11
+            MATERIAL:    X0=0.003495489, A = 6
+            MEASUREMENT: CODE=0
+C Vertex cable	    
+     LAYER: BP-SHELL2-CA 
+            GEOMETRY:  Z= 49.5, RMIN= 7.5, RMAX= 11.1
+            MATERIAL:    X0=0.004665738, A = 29
+            MEASUREMENT: CODE=0
+
+
+Teresa (updated)
+
+C V2
+      LAYER : TPC-ENDP
+            GEOMETRY:  Z=240.25 , RMIN=70.1, RMAX=181.8
+            MATERIAL:    X0=0.1477, A= 13
+            MEASUREMENT: CODE=0
+
+C
+
+C Teresa: ECALENDCAP-MAT modified RMIN
+
+     LAYER : ECALENDCAP-MAT
+            GEOMETRY:  Z=250.5 , RMIN=30.0, RMAX=210.68
+            MATERIAL:    X0=0
+            MEASUREMENT: CODE=10
+      LAYER : ECALENDCAP-MAT
+            GEOMETRY:  Z=250.51 , RMIN=30.0, RMAX=210.68
+            MATERIAL:    X0=0.6, A=74
+            MEASUREMENT: CODE=10
+      LAYER : ECALENDCAP-MAT
+         REPEAT : TIMES=3 , DELTA_Z=3.15
+            GEOMETRY:  Z=251.025 , RMIN=30.0, RMAX=210.68
+            MATERIAL:    X0=3.6, A=74
+            MEASUREMENT: CODE=10
+         ENDREPEAT :
+      LAYER : ECALENDCAP-MAT
+            GEOMETRY:  Z=260.5 , RMIN=30.0, RMAX=210.68
+            MATERIAL:    X0=0.6,A=74
+            MEASUREMENT: CODE=10
+      LAYER : ECALENDCAP-MAT
+         REPEAT : TIMES=3 , DELTA_R=2.205
+            GEOMETRY:  Z=260.8 , RMIN=30.0, RMAX=210.68
+            MATERIAL:    X0=3.6, A=74
+            MEASUREMENT: CODE=10
+         ENDREPEAT :
+      LAYER : ECALENDCAP-MAT
+            GEOMETRY:  Z=268.2 , RMIN=30.0, RMAX=210.68
+            MATERIAL:    X0=0
+            MEASUREMENT: CODE=10
+
+
+      LAYER : HCALRING-MAT
+            GEOMETRY:  Z=250.5 , RMIN=215.68, RMAX=306.488
+            MATERIAL:    X0=0
+            MEASUREMENT: CODE=10
+      LAYER : HCALRING-MAT
+            GEOMETRY:  Z=259.8 ,  RMIN=215.68, RMAX=306.488
+            MATERIAL:    X0=7.95, A= 29
+            MEASUREMENT: CODE=10
+      LAYER : HCALRING-MAT
+            GEOMETRY:  Z=269.05 ,  RMIN=215.68, RMAX=306.488
+            MATERIAL:    X0=0
+            MEASUREMENT: CODE=10
+
+      LAYER : HCALENDCAP-MAT
+            GEOMETRY:  Z=272.6 , RMIN=30., RMAX=306.588
+            MATERIAL:    X0=0
+            MEASUREMENT: CODE=10
+      LAYER : HCALENDCAP-MAT
+         REPEAT : TIMES = 4 , DELTA_Z = 31.8 
+            GEOMETRY:  Z=272.61 , RMIN=30.0, RMAX=306.588
+            MATERIAL:     X0=13.6363636363, A= 26
+            MEASUREMENT: CODE=10
+         ENDREPEAT :
+      LAYER : HCALENDCAP-MAT
+            GEOMETRY:  Z=393.2 , RMIN=30.0, RMAX=306.588
+            MATERIAL:    X0=0
+            MEASUREMENT: CODE=10
+
+
+
+
+      LAYER : YOKEF1-MAT
+            GEOMETRY:  Z=420.1 , RMIN=30.0, RMAX=669.1
+            MATERIAL:    X0=0
+            MEASUREMENT: CODE=0
+      LAYER : YOKEF1-MAT
+            GEOMETRY:  Z=625.5 , RMIN=30.0, RMAX=669.1
+            MATERIAL:    X0=0
+            MEASUREMENT: CODE=0
+
+TYPE: BARREL_CALORIMETRY
+
+C Teresa: LCALINSIDE modified R, ZMIN, ZMAX (MB)
+
+      LAYER:LCALINSIDE
+         GEOMETRY:  R=5.5 , ZMIN=107.4, ZMAX=118.65
+         MATERIAL:    X0=25.0 , A= 74, INTLEN=0.91
+         MEASUREMENT: TYPE=1,ROOT_E_COEFF=0.135, CONST_TERM=0.0015,
+                       EFFI=1.0,THRES=0.05,SIG_TH=5.0,SIG_PHI=5.0,
+                       SIG_X=0.4, SIG_Y=0.4,
+                       MIP_AVE_SIGN=0.4 ,
+                       MIP_SIGN_WIDTH=0.09, MIP_THRES=0.0,
+                       MIP_EFF=1.0
+
+
+      LAYER: HCALENDCAPINSIDE
+         GEOMETRY:    R=30.0, ZMIN=272.57, ZMAX=392.
+         MATERIAL:    X0=53.0, A= 29, INTLEN=5.72
+         MEASUREMENT: TYPE=2,ROOT_E_COEFF=0.48,CONST_TERM=0.053 ,
+                       EFFI=1.0,THRES=0.05,SIG_TH=5.0,SIG_PHI=5.,
+                       SIG_X=13. , SIG_Y=13.,
+                       MIP_AVE_SIGN=2.6 ,
+                       MIP_SIGN_WIDTH=0.6, MIP_THRES=0.0,
+                       MIP_EFF=1.0
+
+      LAYER:ECALBARREL
+            GEOMETRY:  R=184.27, ZMIN=0.0, ZMAX=240.5
+            MATERIAL:    X0=22.8, A = 74,  INTLEN=0.83  
+            MEASUREMENT: TYPE=1,ROOT_E_COEFF=0.16, CONST_TERM=0.022,
+                          EFFI=1.0,THRES=0.05,SIG_TH=5.,SIG_PHI=5.,
+                          SIG_RPHI=1.3, SIG_Z=1.3,
+                          MIP_AVE_SIGN=0.4 ,
+                          MIP_SIGN_WIDTH=0.09, MIP_THRES=0.0,
+                          MIP_EFF=1.0
+
+      LAYER: HCALBARREL
+            GEOMETRY:  R=204.24, ZMIN=0.0, ZMAX=240.5
+            MATERIAL:    X0=53. , A= 29, INTLEN=5.72
+            MEASUREMENT: TYPE=2,ROOT_E_COEFF=0.48, CONST_TERM=0.053 ,
+                          EFFI=1.0,THRES=0.05,SIG_TH=5.,SIG_PHI=5.,
+                          SIG_RPHI=13., SIG_Z=13.,
+                          MIP_AVE_SIGN=2.6 ,
+                          MIP_SIGN_WIDTH=0.6, MIP_THRES=0.0,
+                          MIP_EFF=1.0
+
+
+
+TYPE: FORWARD_CALORIMETRY
+
+
+      LAYER:LCAL 
+         GEOMETRY:  Z=107.4, RMIN=5.5 , RMAX=11.5
+         MATERIAL:    X0=25.0 , A= 74, INTLEN=0.75
+         MEASUREMENT: TYPE=1,ROOT_E_COEFF=0.135, CONST_TERM=0.0015,
+                       EFFI=1.0,THRES=0.05,SIG_TH=5.0,SIG_PHI=5.0,
+                       SIG_X=0.4, SIG_Y=0.4,
+                       MIP_AVE_SIGN=0.4 ,
+                       MIP_SIGN_WIDTH=0.09, MIP_THRES=0.0,
+                       MIP_EFF=1.0
+
+
+     LAYER:ECALENDCAP
+         GEOMETRY:  Z=250.5, RMIN=30.0 , RMAX=210.68
+         MATERIAL:    X0=22.8 , A= 74, INTLEN=0.83
+         MEASUREMENT: TYPE=1,ROOT_E_COEFF=0.16, CONST_TERM=0.022,
+                       EFFI=1.0,THRES=0.05,SIG_TH=5.0,SIG_PHI=5.,
+                       SIG_X=1.3 , SIG_Y=1.3,
+                       MIP_AVE_SIGN=0.4 ,
+                       MIP_SIGN_WIDTH=0.09, MIP_THRES=0.0,
+                       MIP_EFF=1.0
+
+
+      LAYER: HCALENDCAP
+         GEOMETRY:  Z=272.57, RMIN=30.0, RMAX=306.588
+         MATERIAL:    X0=53.0, A= 29, INTLEN=5.72
+         MEASUREMENT: TYPE=2,ROOT_E_COEFF=0.48,CONST_TERM=0.053 ,
+                       EFFI=1.0,THRES=0.05,SIG_TH=5.0,SIG_PHI=5.,
+                       SIG_X=13. , SIG_Y=13.,
+                       MIP_AVE_SIGN=2.6 ,
+                       MIP_SIGN_WIDTH=0.6, MIP_THRES=0.0,
+                       MIP_EFF=1.0

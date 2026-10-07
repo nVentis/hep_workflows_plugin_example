@@ -1,0 +1,1 @@
+from .config_250_zh_ildfccv01_pre_generated_fast_perf import Config_250_zh_ildfccv01_pre_generated_fast_perf
